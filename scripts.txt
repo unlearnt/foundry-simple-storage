@@ -1,0 +1,21 @@
+# Encrypting your Keys Using ERC2335
+cast wallet import nameOfAccountGoesHere --interactive
+
+# Cast help
+cast --help
+
+# Cast send contract
+cast send 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 "store(uint256)" 1337 --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+
+# Cast call
+cast call 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 "retrieve()"
+
+#  hex value to base
+cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000539 dec
+
+# deploy using wallet
+forge script script/DeploySimpleStorage.s.sol --rpc-url http://127.0.0.1:8545 --broadcast --account nameOfAccountGoesHere --sender 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+
+forge script script/DeploySimpleStorage.s.sol --rpc-url $Sepolia_RPC_URL --private-key $PRIVATE_KEY --broadcast
+
+forge fmt
